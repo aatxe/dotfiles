@@ -16,3 +16,4 @@ map ` :NERDTreeToggle<CR>
 map B :! cargo build<CR>
 map T :! cargo test<CR>
 autocmd vimenter * NERDTree
+set colorcolumn=100
