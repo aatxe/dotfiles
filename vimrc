@@ -9,7 +9,6 @@ set background=dark
 colorscheme gruvbox
 execute pathogen#infect()
 filetype on
-au BufNewFile,BufRead *.rs set filetype=rust
 set number
 set ignorecase
 set smartcase
