@@ -1,0 +1,5 @@
+[user]
+	name = Aaron Weiss
+	email = aaronweiss74@gmail.com
+[core]
+	excludesfile = ~/.gitignore
