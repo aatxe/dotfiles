@@ -4,3 +4,5 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
+[push]
+	default = simple
