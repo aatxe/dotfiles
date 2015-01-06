@@ -1,15 +1,21 @@
 [submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
+    path = vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree
 [submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
-	url = https://github.com/wting/rust.vim
+    path = vim/bundle/rust.vim
+    url = https://github.com/wting/rust.vim
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic
+    path = vim/bundle/syntastic
+    url = https://github.com/scrooloose/syntastic
 [submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
+    path = vim/bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive
 [submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
+    path = vim/bundle/YouCompleteMe
+    url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/bundle/vim2hs"]
+    path = vim/bundle/vim2hs
+    url = https://github.com/dag/vim2hs
+[submodule "vim/bundle/ghcmod-vim"]
+    path = vim/bundle/ghcmod-vim
+    url = https://github.com/eagletmt/ghcmod-vim
