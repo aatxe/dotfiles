@@ -26,3 +26,4 @@ set completeopt=longest,menuone
 set hidden
 let g:racer_cmd = "/usr/local/bin/racer"
 let $RUST_SRC_PATH="/usr/local/src/rust/src"
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
