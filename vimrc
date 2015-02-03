@@ -8,6 +8,7 @@ set mouse=a
 set background=dark
 colorscheme gruvbox
 set transparency=5
+set nofoldenable
 execute pathogen#infect()
 filetype on
 set number
