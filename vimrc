@@ -30,3 +30,4 @@ let $RUST_SRC_PATH="/usr/local/src/rust/src"
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 set fillchars+=vert:│
 au BufRead,BufNewFile *.syn set filetype=ocaml
+autocmd FileType rust,scala,ocaml autocmd BufWritePre <buffer> :%s/\s\+$//e
