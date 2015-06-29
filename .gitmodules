@@ -10,9 +10,6 @@
 [submodule "vim/bundle/vim-fugitive"]
     path = vim/bundle/vim-fugitive
     url = https://github.com/tpope/vim-fugitive
-[submodule "vim/bundle/YouCompleteMe"]
-    path = vim/bundle/YouCompleteMe
-    url = https://github.com/Valloric/YouCompleteMe
 [submodule "vim/bundle/vim2hs"]
     path = vim/bundle/vim2hs
     url = https://github.com/dag/vim2hs
