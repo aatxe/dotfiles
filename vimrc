@@ -32,3 +32,6 @@ set fillchars+=vert:│
 au BufRead,BufNewFile *.syn set filetype=ocaml
 autocmd FileType rust,scala,ocaml autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType scala :setlocal sw=2 sts=2
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
