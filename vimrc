@@ -17,6 +17,7 @@ set smartcase
 map ` :NERDTreeToggle<CR>
 map B :! cargo build<CR>
 map T :! cargo test<CR>
+map P :! paste2sprunge<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set colorcolumn=100
@@ -31,7 +32,7 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 set fillchars+=vert:│
 au BufRead,BufNewFile *.syn set filetype=ocaml
 autocmd FileType rust,scala,ocaml autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType scala :setlocal sw=2 sts=2
+autocmd FileType scala,c :setlocal sw=2 sts=2
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//

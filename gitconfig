@@ -1,6 +1,7 @@
 [user]
 	name = Aaron Weiss
 	email = aaronweiss74@gmail.com
+	signingkey = 204C61BE
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
@@ -10,3 +11,5 @@
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+[commit]
+	gpgsign = true
