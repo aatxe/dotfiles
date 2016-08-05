@@ -28,6 +28,7 @@ let $RUST_SRC_PATH="/usr/local/src/rust/src"
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 set fillchars+=vert:│
 au BufRead,BufNewFile *.syn set filetype=ocaml
+au BufRead,BufNewFile *.smt set filetype=lisp
 autocmd FileType rust,scala,ocaml autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType scala,c :setlocal sw=2 sts=2
 set backupdir=~/.vim/backup//
