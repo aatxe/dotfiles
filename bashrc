@@ -1,3 +1,4 @@
+export GPG_TTY=$(tty)
 export PATH=$PATH:$HOME/.cargo/bin:$HOME/.cabal/bin:/usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/bin
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias ls="ls -G"
