@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     python
      auto-completion
      emacs-lisp
      emoji
@@ -44,6 +43,7 @@ values."
      javascript
      markdown
      ocaml
+     python
      rust
      scala
      syntax-checking
@@ -134,10 +134,10 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 12
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -307,6 +307,7 @@ you should place your code here."
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
   (setq company-emoji-insert-unicode t)
   (add-hook 'scala-mode-hook 'company-emoji-init)
+  (setq powerline-default-separator 'slant)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
