@@ -318,6 +318,17 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq-default fill-column 100)
 
+  ;; Setting up TeX input method for Racket.
+  (defun activate-tex-input-method ()
+    (activate-input-method "TeX")
+
+    ;; Use double _ or ^ to insert _ and ^ respectively.
+    (define-key evil-insert-state-local-map (kbd "_ _")
+      (lambda () (interactive) (insert "_")))
+    (define-key evil-insert-state-local-map (kbd "^ ^")
+      (lambda () (interactive) (insert "^"))))
+  (add-hook 'racket-mode-hook 'activate-tex-input-method)
+
   ;; Setting up emoji support (requires multicolor font support in emacs build)
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
   (setq company-emoji-insert-unicode t)
