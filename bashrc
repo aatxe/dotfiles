@@ -8,4 +8,4 @@ export OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 export OPENSSL_LIB_DIR=/usr/local/opt/openssl/lib
 
 # added by travis gem
-[ -f /Users/Aaron/.travis/travis.sh ] && source /Users/Aaron/.travis/travis.sh
+[ -f /Users/awe/.travis/travis.sh ] && source /Users/awe/.travis/travis.sh
