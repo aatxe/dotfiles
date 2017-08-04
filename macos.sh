@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install core packages via Homebrew.
+brew tap d12frosted/emacs-plus
+brew install cloc emacs-plus gnupg rlwrap
+
 # Based on https://github.com/JDevlieghere/dotfiles/blob/master/os/macos.sh
 
 # Get the administrator password upfront.
