@@ -5,7 +5,7 @@
 
 # Install core packages via Homebrew.
 brew tap d12frosted/emacs-plus
-brew install cloc emacs-plus gnupg rlwrap
+brew install cloc emacs-plus gnupg trash rlwrap
 
 # Based on https://github.com/JDevlieghere/dotfiles/blob/master/os/macos.sh
 
