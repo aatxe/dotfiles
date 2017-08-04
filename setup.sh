@@ -11,7 +11,9 @@ ln -s $wd/spacemacs $HOME/.spacemacs
 # Set up zsh with oh-my-zsh.
 git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 ln -s $wd/zshrc $HOME/.zshrc
-ln -s $wd/zsh/*.zsh $HOME/.oh-my-zsh/custom/
+ln -s $wd/zsh/*.zsh $ZSH/custom/
+mkdir $ZSH/custom/themes
+ln -s $wd/zsh/themes/*.zsh-theme $ZSH/custom/themes/
 chsh -s /bin/zsh
 
 # Set up gpg-agent.
