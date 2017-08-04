@@ -13,5 +13,10 @@ brew install node
 brew install ocaml opam
 brew install scala sbt
 
+brew cask install java
+brew cask install mactex
+brew cask install racket
+
 # Common Dev Dependencies
 brew install cmake graphviz imagemagick wget z3
+brew cask install vagrant virtualbox
