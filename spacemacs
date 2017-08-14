@@ -306,7 +306,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Load dash and autothemer before themes.
-  (load-file "~/.emacs.d/elpa/dash-20170613.151/dash.el")
+  (load-file "~/.emacs.d/elpa/dash-20170810.137/dash.el")
   (load-file "~/.emacs.d/elpa/autothemer-20170112.1324/autothemer.el")
 
   ;; Disable checking where PATH is defined on startup.
