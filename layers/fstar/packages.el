@@ -30,13 +30,8 @@
 ;;; Code:
 
 (defconst fstar-packages
-  '(company
-    fstar-mode
+  '(fstar-mode
     smartparens))
-
-(defun fstar/post-init-company ()
-  (spacemacs|add-company-hook fstar-mode)
-  (push 'company-capf company-backends-fstar-mode))
 
 (defun fstar/init-fstar-mode ()
   (use-package fstar-mode
