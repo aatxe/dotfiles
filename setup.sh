@@ -7,6 +7,7 @@ ln -s $wd/gitignore $HOME/.gitignore
 # Set up spacemacs.
 git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 ln -s $wd/spacemacs $HOME/.spacemacs
+ln -s $wd/layers/* $HOME/.emacs.d/private/
 
 # Set up zsh with oh-my-zsh.
 git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
