@@ -41,6 +41,7 @@ values."
               haskell-indent-spaces 2)
      html
      idris
+     ivy
      javascript
      latex
      markdown
