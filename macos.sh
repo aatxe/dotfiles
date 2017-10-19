@@ -7,6 +7,9 @@
 brew tap d12frosted/emacs-plus
 brew install cloc emacs-plus gnupg trash rlwrap
 
+# Remove linux ZSH config.
+rm $ZSH/custom/linux.zsh
+
 # Based on https://github.com/JDevlieghere/dotfiles/blob/master/os/macos.sh
 
 # Get the administrator password upfront.
