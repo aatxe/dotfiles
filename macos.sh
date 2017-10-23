@@ -6,6 +6,7 @@
 # Install core packages via Homebrew.
 brew tap d12frosted/emacs-plus
 brew install cloc emacs-plus gnupg trash rlwrap
+brew services start d12frosted/emacs-plus/emacs-plus
 
 # Remove linux ZSH config.
 rm $ZSH/custom/linux.zsh
