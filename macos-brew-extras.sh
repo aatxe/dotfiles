@@ -18,5 +18,5 @@ brew cask install mactex
 brew cask install racket
 
 # Common Dev Dependencies
-brew install cmake graphviz imagemagick wget z3
+brew install cmake graphviz imagemagick markdown wget z3
 brew cask install vagrant virtualbox
