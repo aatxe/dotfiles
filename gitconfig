@@ -1,7 +1,7 @@
 [user]
 	name = Aaron Weiss
 	email = awe@pdgn.co
-	signingkey = 204C61BE
+	signingkey = 047D32DF25DC22EF
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/emacsclient -t
