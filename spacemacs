@@ -335,6 +335,11 @@ you should place your code here."
               (define-key evil-insert-state-local-map (kbd "C-\\")
                 'dr-racket-like-unicode-char)))
 
+  (add-hook 'racket-repl-mode-hook
+            (lambda ()
+              (define-key evil-insert-state-local-map (kbd "C-\\")
+                'dr-racket-like-unicode-char)))
+
   ;; Setting up emoji support (requires multicolor font support in emacs build)
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
   (setq company-emoji-insert-unicode t))
