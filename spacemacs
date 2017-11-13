@@ -324,7 +324,7 @@ you should place your code here."
 
   ;; Set some default settings.
   (setq-default fill-column 100)
-  (setq powerline-default-separator 'slant)
+  (setq powerline-default-separator 'utf-8)
 
   ;; Enable pinentry for git commit signing.
   (pinentry-start)
