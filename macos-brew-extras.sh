@@ -19,4 +19,5 @@ brew cask install racket
 
 # Common Dev Dependencies
 brew install cmake graphviz imagemagick markdown wget z3
+brew install poppler # for PDF tools like pdffonts and pdfinfo
 brew cask install vagrant virtualbox
