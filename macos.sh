@@ -5,7 +5,8 @@
 
 # Install core packages via Homebrew.
 brew tap d12frosted/emacs-plus
-brew install cloc emacs-plus gnupg trash rlwrap
+brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
+brew install cloc emacs-plus gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
 brew services start d12frosted/emacs-plus/emacs-plus
 
 # Remove linux ZSH config.
