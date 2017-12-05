@@ -4,10 +4,10 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install core packages via Homebrew.
-brew tap railwaycat/emacsmacport
+brew tap d12frosted/emacs-plus
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
 brew install cloc gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
-brew cask install emacs-mac
+brew install emacs-plus --without-spacemacs-icon --with-pixel-scrolling
 
 # Remove linux ZSH config.
 rm $ZSH/custom/linux.zsh
