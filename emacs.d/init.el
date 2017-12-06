@@ -350,3 +350,22 @@
    :states '(normal motion emacs)
    :prefix "SPC"
    "tr" 'rainbow-delimiters-mode))
+
+;; Language-Specific Packages
+
+;; Racket
+
+(use-package racket-mode
+  :ensure t
+  :defer t)
+
+(use-package dr-racket-like-unicode
+  :ensure t
+  :defer t
+  :config
+  (defun bind-dr-racket-unicode ()
+    (define-key evil-insert-state-local-map (kbd "C-\\")
+      'dr-racket-like-unicode-char))
+
+  (add-hook 'racket-mode-hook 'bind-dr-racket-unicode)
+  (add-hook 'racket-repl-mode-hook 'bind-dr-racket-unicode))
