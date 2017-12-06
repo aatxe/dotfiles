@@ -4,6 +4,7 @@
 ;; Basic UI - disable all of the default UI elements
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 (set-fringe-style '(1 . 1))
 (set-face-attribute 'default nil
                     :font "Source Code Pro")
@@ -100,6 +101,7 @@
    ;; top-level shortcuts
    "SPC" 'execute-extended-command
    "TAB" 'evil-switch-to-windows-last-buffer
+   "!"   'shell-command
    ;; buffer menu - b
    "bd" 'kill-buffer
    "bb" 'switch-to-buffer
@@ -287,6 +289,8 @@
    :prefix "SPC"
    "tp" 'smartparens-mode)
   :config
+  (require 'smartparens-config)
+  (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
   (smartparens-mode))
 
 ;; Visual Packages
