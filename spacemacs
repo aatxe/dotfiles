@@ -33,33 +33,29 @@ values."
    '(
      auto-completion
      emacs-lisp
-     emoji
-     fstar
-     games
      git
      (haskell :variables
               haskell-indent-spaces 2)
      html
      idris
      ivy
-     javascript
      latex
-     lua
      markdown
      ocaml
      python
      racket
-     ruby
      rust
      scala
-     syntax-checking
-     yaml)
+     syntax-checking)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(autothemer
-                                      dr-racket-like-unicode)
+                                      dr-racket-like-unicode
+                                      ;; The following are languages I really only want highlighting for.
+                                      js2-mode
+                                      lua-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
