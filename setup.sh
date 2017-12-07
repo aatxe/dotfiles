@@ -5,7 +5,7 @@ ln -s $wd/gitconfig $HOME/.gitconfig
 ln -s $wd/gitignore $HOME/.gitignore
 
 # Set up spacemacs.
-git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+git clone -b develop https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 ln -s $wd/spacemacs $HOME/.spacemacs
 ln -s $wd/layers/* $HOME/.emacs.d/private/
 ln -s $wd/packages/* $HOME/.emacs.d/private/
