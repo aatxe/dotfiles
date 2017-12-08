@@ -350,6 +350,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (load-file "~/.emacs.d/elpa/dash-20171028.854/dash.el")
   (load-file "~/.emacs.d/elpa/autothemer-20170112.1324/autothemer.el")
 
+  ;; Follow symbolic links automatically.
+  (setq vc-follow-symlinks t)
+
   ;; Disable checking where PATH is defined on startup.
   (setq exec-path-from-shell-check-startup-files nil))
 
@@ -382,6 +385,7 @@ you should place your code here."
   ;; Setting up emoji support (requires multicolor font support in emacs build)
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
   (setq company-emoji-insert-unicode t))
+
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -392,7 +396,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil))
+ '(package-selected-packages
+   (quote
+    (yapfify ws-butler winum which-key wgrep web-mode volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg caml toml-mode toc-org tagedit symon string-inflection spaceline powerline smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode faceup racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el password-generator paradox spinner org-plus-contrib org-bullets open-junk-file ocp-indent noflet neotree move-text mmm-mode merlin meghanada markdown-toc markdown-mode magit-gitflow macrostep lua-mode lorem-ipsum live-py-mode linum-relative link-hint less-css-mode js2-mode ivy-purpose window-purpose imenu-list ivy-hydra intero info+ indent-guide impatient-mode htmlize simple-httpd idris-mode prop-menu hydra hy-mode dash-functional hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core haskell-snippets haml-mode gruvbox-theme gradle-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-rust seq flycheck-pos-tip pos-tip flycheck-haskell flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode diminish define-word dante cython-mode counsel-projectile company-web company-statistics company-ghci company-ghc company-emacs-eclim company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode cargo bind-key autothemer auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
