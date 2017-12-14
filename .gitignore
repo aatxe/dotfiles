@@ -1,1 +1,6 @@
 vim/swap
+emacs.d/.cache
+emacs.d/auto_custom.el
+emacs.d/elpa/
+emacs.d/projectile-bookmarks.eld
+emacs.d/recentf
