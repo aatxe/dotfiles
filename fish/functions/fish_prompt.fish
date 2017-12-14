@@ -54,6 +54,7 @@ function fish_prompt
     end
 
     set -l red (set_color -o red)
+    set -l blue (set_color -o blue)
     set -l purple (set_color -o purple)
     set -l green (set_color -o green)
     set -l normal (set_color normal)
@@ -68,7 +69,7 @@ function fish_prompt
         set arrow "$arrow_color# "
     end
 
-    set -l cwd (basename (prompt_pwd))
+    set -l cwd $purple(basename (prompt_pwd))$blue
 
-    echo -n -s $arrow ' ' $purple '('$cwd')' $normal ' '
+    echo -n -s $arrow ' ' $blue '('$cwd')' $normal ' '
 end
