@@ -24,6 +24,7 @@
      (add-to-list 'custom-theme-load-path
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
+
 (autothemer-deftheme
  awemacs
  "An Emacs color theme by Aaron Weiss"
@@ -143,7 +144,13 @@
   (linum-highlight-face (:foreground awemacs-light :background awemacs-dark))
   (linum-relative-current-face (:foreground awemacs-light :background awemacs-dark))
 
-  ;; spaceline (evil mode colors)
+  ;; evil mode colors (doesn't affect cursor color)
+  (spacemacs-emacs-face (:background awemacs-blue))
+  (spacemacs-insert-face (:background awemacs-green))
+  (spacemacs-motion-face (:background awemacs-purple))
+  (spacemacs-normal-face (:background awemacs-orange))
+  (spacemacs-replace-face (:background awemacs-bright-orange))
+  (spacemacs-visual-face (:background awemacs-grey))
   (spaceline-evil-emacs (:background awemacs-blue))
   (spaceline-evil-insert (:background awemacs-green))
   (spaceline-evil-motion (:background awemacs-purple))
@@ -261,6 +268,11 @@
 
  ;; Evaluated Forms:
  (custom-theme-set-variables 'awemacs
+                             `(hl-paren-colors
+                               '(,awemacs-green
+                                 ,awemacs-bright-red
+                                 ,awemacs-red
+                                 ,awemacs-orange))
                              `(ansi-color-names-vector
                                [,awemacs-dark
                                 ,awemacs-red
@@ -272,4 +284,4 @@
                                 ,awemacs-light])))
 
 (provide-theme 'awemacs)
-(provide 'awemacs)
+(provide 'awemacs-theme)
