@@ -197,8 +197,9 @@
   (company-scrollbar-bg (:background awemacs-dark))
   (company-scrollbar-fg (:background awemacs-hl))
   (company-tooltip (:background awemacs-hl))
-  (company-tooltip-annotation (:background awemacs-green))
-  (company-tooltip-annotation-selection (:inherit 'company-tooltip-annotation))
+  (company-tooltip-annotation (:background awemacs-hl :foreground awemacs-purple :italic t))
+  (company-tooltip-annotation-selection (:background awemacs-dark :foreground awemacs-purple
+                                                     :italic t))
   (company-tooltip-selection (:foreground awemacs-red :background awemacs-dark))
   (company-tooltip-common (:foreground awemacs-red))
   (company-tooltip-common-selection (:foreground awemacs-red :bold t))
@@ -213,8 +214,23 @@
   (ivy-minibuffer-match-face-3 (:foreground awemacs-orange))
   (ivy-minibuffer-match-face-4 (:foreground awemacs-yellow))
 
-  ;; magit
+  ;; hydra
+  (hydra-face-amaranth (:foreground awemacs-bright-red))
+  (hydra-face-blue (:foreground awemacs-blue))
+  (hydra-face-pink (:foreground awemacs-red))
+  (hydra-face-red (:foreground awemacs-bright-red))
+  (hydra-face-teal (:foreground awemacs-cyan))
 
+  ;; powerline
+  (powerline-active0 (:foreground awemacs-light :background awemacs-dark))
+  (powerline-active1 (:foreground awemacs-light :background awemacs-off-dark))
+  (powerline-active2 (:foreground awemacs-light :background awemacs-grey))
+  (powerline-inactive0 (:foreground awemacs-light :background awemacs-dark))
+  (powerline-inactive1 (:foreground awemacs-light :background awemacs-off-dark))
+  (powerline-inactive2 (:foreground awemacs-light :background awemacs-grey))
+  (spaceline-python-venv (:foreground awemacs-purple))
+
+  ;; magit
   (magit-bisect-bad (:foreground awemacs-bright-red))
   (magit-bisect-good (:foreground awemacs-bright-green))
   (magit-bisect-skip (:foreground awemacs-bright-brown))
