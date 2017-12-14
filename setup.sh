@@ -11,12 +11,11 @@ ln -s $wd/layers/* $HOME/.emacs.d/private/
 ln -s $wd/packages/* $HOME/.emacs.d/private/
 
 # Set up zsh with oh-my-zsh.
-git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-ln -s $wd/zshrc $HOME/.zshrc
-ln -s $wd/zsh/*.zsh $ZSH/custom/
-mkdir $ZSH/custom/themes
-ln -s $wd/zsh/themes/*.zsh-theme $ZSH/custom/themes/
-chsh -s /bin/zsh
+mkdir -p $HOME/.config/fish/
+ln -s $wd/fish/config.fish $HOME/.config/fish/config.fish
+ln -s $wd/fish/functions $HOME/.config/fish/functions
+fish fish/setup.fish
+chsh -s $(which fish)
 
 # Set up gpg-agent.
 ln -s $wd/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf

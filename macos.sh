@@ -6,11 +6,11 @@
 # Install core packages via Homebrew.
 brew tap d12frosted/emacs-plus
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
-brew install cloc gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
+brew install cloc fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
 brew install emacs-plus --without-spacemacs-icon --with-pixel-scrolling
 
-# Remove linux ZSH config.
-rm $ZSH/custom/linux.zsh
+# Run mac-specific fish configuration.
+fish fish/setup-mac.fish
 
 # Based on https://github.com/JDevlieghere/dotfiles/blob/master/os/macos.sh
 
