@@ -374,8 +374,18 @@ you should place your code here."
 
   ;; Set some default settings.
   (setq-default fill-column 100)
-
   (setq powerline-default-separator 'utf-8)
+
+  (defun shell-output-stripped (cmd)
+    (substring
+     (shell-command-to-string cmd)
+     0 -1))
+
+  ;; Setup racer path when activating rust mode.
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (setq racer-rust-src-path (concat (shell-output-stripped "rustc --print sysroot")
+                                                "/lib/rustlib/src/rust/src"))))
 
   ;; Enable pinentry for git commit signing.
   (pinentry-start)
