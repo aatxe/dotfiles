@@ -1,10 +1,10 @@
 function cat --description "mdcat for markdown files, cat for everything else"
   set cat_flags
   for arg in $argv
-    if echo $arg | grep "^-"
+    if string match -rq -- '^-' $arg
       set cat_flags $cat_flags $arg
     end
-    if echo $arg | grep ".md\$"
+    if string match -rq -- '.md$' $arg
       set cat_mdcat_args $cat_mdcat_args $arg
     else
       set cat_cat_args $cat_cat_args $arg
