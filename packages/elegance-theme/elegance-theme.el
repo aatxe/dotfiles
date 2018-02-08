@@ -79,6 +79,14 @@
   (font-lock-type-face (:foreground elegance-fg-tertiary :italic t))
   (font-lock-warning-face (:foreground elegance-fg-tertiary :bold t))
 
+  ;; common
+  (success (:foreground elegance-green :bold t))
+  (error (:foreground elegance-red :bold t))
+
+  ;; flycheck
+  (flycheck-error (:foreground elegance-red :underline (:style 'wave :color elegance-red)))
+  (flycheck-warning (:foreground elegance-yellow :underline (:style 'wave :color elegance-yellow)))
+
   ;; evil ex
   (evil-ex-commands (:foreground elegance-fg-primary))
   (evil-ex-info (:foreground elegance-fg-tertiary))
