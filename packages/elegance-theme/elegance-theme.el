@@ -79,6 +79,9 @@
   (font-lock-type-face (:foreground elegance-fg-tertiary :italic t))
   (font-lock-warning-face (:foreground elegance-fg-tertiary :bold t))
 
+  ;; Markdown-specific Syntax
+  (markdown-markup-face (:foreground elegance-fg-secondary))
+
   ;; common
   (success (:foreground elegance-green :bold t))
   (error (:foreground elegance-red :bold t))
