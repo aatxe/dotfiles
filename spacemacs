@@ -29,8 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     auto-completion
+   '(auto-completion
      emacs-lisp
      git
      (haskell :variables
@@ -45,7 +44,9 @@ This function should only modify configuration layer settings."
      racket
      rust
      scala
-     syntax-checking)
+     sql
+     syntax-checking
+     yaml)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -142,8 +143,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '((awemacs :location local)
-                         (elegance :location local))
+   dotspacemacs-themes '((elegance :location local)
+                         (gruvbox)
+                         (awemacs :location local))
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -387,6 +389,11 @@ you should place your code here."
               (setq racer-rust-src-path (concat (shell-output-stripped "rustc --print sysroot")
                                                 "/lib/rustlib/src/rust/src"))))
 
+  ;; Set spacing to two for web mode.
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
+
   ;; Enable pinentry for git commit signing.
   (pinentry-start)
 
@@ -415,9 +422,17 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#282828" "#847777" "#6A8471" "#747165" "#60676B" "#847782" "#606B6B" "#6D6D6D"])
+ '(custom-safe-themes
+   (quote
+    ("b109675d8d2e76776498ebc60da9779a18b103ba751ab85b59c1a5676b7ff07a" "ad109c1ad8115573f40e22ac2b996693b5d48052fa37b5919f70ea37c62a965e" default)))
+ '(evil-want-Y-yank-to-eol nil)
+ '(hl-paren-colors (quote ("#6A8471" "#847777" "#60676B" "#847782")))
+ '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(package-selected-packages
    (quote
-    (fish-mode yapfify wgrep web-mode utop tuareg caml toml-mode tagedit smex smeargle slim-mode scss-mode sass-mode racket-mode faceup racer pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements ocp-indent noflet mmm-mode merlin meghanada markdown-toc markdown-mode magit-gitflow lua-mode live-py-mode less-css-mode js2-mode ivy-purpose ivy-hydra intero impatient-mode htmlize simple-httpd idris-mode prop-menu hy-mode dash-functional hlint-refactor hindent haskell-snippets haml-mode gradle-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-rust flycheck-pos-tip pos-tip flycheck-haskell evil-magit magit magit-popup git-commit ghub let-alist with-editor ensime sbt-mode scala-mode emmet-mode dr-racket-like-unicode dante flycheck cython-mode counsel-projectile counsel swiper ivy company-web web-completion-data company-statistics company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-cabal company-auctex company-anaconda company cmm-mode cargo rust-mode autothemer auto-yasnippet yasnippet auctex anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (sqlup-mode sql-indent gruvbox-theme yaml-mode auctex-latexmk yapfify ws-butler winum which-key wgrep web-mode volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg toml-mode toc-org tagedit string-inflection spaceline smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file ocp-indent noflet neotree move-text mmm-mode merlin meghanada markdown-toc magit-gitflow macrostep lua-mode live-py-mode linum-relative link-hint less-css-mode js2-mode ivy-purpose ivy-hydra intero info+ indent-guide impatient-mode idris-mode hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode diminish define-word dante cython-mode counsel-projectile company-web company-statistics company-ghci company-ghc company-emacs-eclim company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode cargo autothemer auto-highlight-symbol auto-complete auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
