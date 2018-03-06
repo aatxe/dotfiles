@@ -7,4 +7,5 @@ set -x PATH $HOME/.local/bin $PATH
 # Run ssh-agent if not on macOS.
 if [ (uname) != "Darwin" ]
     eval (ssh-agent -c)
+    ssh-add
 end
