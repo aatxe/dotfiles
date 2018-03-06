@@ -4,3 +4,7 @@ set -x GPG_TTY (tty)
 set -x PATH $HOME/.cargo/bin $PATH
 # Add .local/bin to path.
 set -x PATH $HOME/.local/bin $PATH
+# Run ssh-agent if not on macOS.
+if [ (uname) != "Darwin" ]
+    eval (ssh-agent -c)
+end
