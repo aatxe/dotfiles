@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git push --all github &
+git push --all gitlab &
