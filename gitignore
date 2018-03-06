@@ -47,3 +47,6 @@ flycheck_*.el
 
 # directory configuration
 .dir-locals.el
+
+# core dumps
+*.core
