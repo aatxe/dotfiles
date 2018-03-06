@@ -1,5 +1,5 @@
 # dotfiles #
-These are my configuration files.
+These are my configuration files, and stuff.
 
 ## Setup Process ##
 The current setup process looks something like this:
