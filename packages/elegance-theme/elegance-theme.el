@@ -82,6 +82,20 @@
   ;; Markdown-specific Syntax
   (markdown-markup-face (:foreground elegance-fg-secondary))
 
+  ;; js2-mode syntax
+  (js2-error (:foreground elegance-red))
+  (js2-external-variable (:foreground elegance-yellow))
+  (js2-function-param (:foreground elegance-fg-secondary))
+  (js2-instance-member (:foreground elegance-purple))
+  (js2-jsdoc-html-tag-delimiter (:foreground elegance-green))
+  (js2-jsdoc-html-tag-name (:foreground elegance-yellow))
+  (js2-jsdoc-tag (:foreground elegance-blue))
+  (js2-jsdoc-type (:foreground elegance-purple))
+  (js2-jsdoc-value (:foreground elegance-cyan))
+  (js2-private-function-call (:foreground elegance-yellow))
+  (js2-private-member (:foreground elegance-red))
+  (js2-warning (:foreground elegance-yellow :underline (:style 'wave :color elegance-yellow)))
+
   ;; common
   (success (:foreground elegance-green :bold t))
   (error (:foreground elegance-red :bold t))
