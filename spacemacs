@@ -33,6 +33,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(auto-completion
      emacs-lisp
+     (fstar :location local)
      git
      (haskell :variables
               ;; The default package repository used if no explicit repository has been
@@ -187,7 +188,7 @@ It should only modify the values of Spacemacs settings."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator arrow :separator-scale 1.2)
+   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.2)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -479,7 +480,8 @@ you should place your code here."
                                                 "/lib/rustlib/src/rust/src"))))
 
   ;; Set spacing to two for web mode.
-  (setq web-mode-code-indent-offset 4)
+  (setq js-indent-level 2)
+  (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
 
@@ -513,7 +515,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (vue-mode edit-indirect ssass-mode vue-html-mode web-beautify livid-mode skewer-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js-doc helm-gtags ggtags counsel-gtags company-tern tern coffee-mode add-node-modules-path yapfify yaml-mode web-mode utop tuareg string-inflection scss-mode pyvenv pip-requirements persp-mode paradox meghanada lua-mode live-py-mode linum-relative js2-mode ivy-hydra intero impatient-mode simple-httpd idris-mode hy-mode dash-functional hindent highlight-indentation git-timemachine flycheck-rust flycheck-haskell flx-ido fish-mode fill-column-indicator eyebrowse expand-region evil-surround evil-matchit ensime sbt-mode editorconfig dumb-jump define-word dante lcr cython-mode counsel-projectile company-auctex company-anaconda cargo auto-compile auctex-latexmk anaconda-mode ace-window ace-link ghc company counsel swiper iedit smartparens highlight flycheck projectile helm helm-core ivy avy magit magit-popup git-commit ghub with-editor markdown-mode epl pythonic f rust-mode powerline s dash yasnippet which-key use-package org-plus-contrib hydra exec-path-from-shell bind-key async evil goto-chg yasnippet-snippets ws-butler winum wgrep volatile-highlights vi-tilde-fringe uuidgen undo-tree toml-mode toc-org tagedit sql-indent spinner spaceline-all-the-icons smex smeargle slim-mode seq scala-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pytest pyenv-mode py-isort pug-mode prop-menu popwin pippel pipenv pcre2el packed overseer org-bullets open-junk-file ocp-indent noflet neotree nameless mvn move-text mmm-mode merlin maven-test-mode markdown-toc magit-gitflow macrostep link-hint less-css-mode ivy-xref ivy-purpose indent-guide importmagic hungry-delete htmlize hlint-refactor hl-todo highlight-parentheses highlight-numbers helm-make haskell-snippets gruvbox-theme groovy-mode groovy-imports gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-messenger git-link gh-md fuzzy font-lock+ flycheck-pos-tip flx evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dr-racket-like-unicode diminish counsel-css company-web company-statistics company-ghci company-ghc company-emacs-eclim company-cabal column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode caml auto-highlight-symbol auto-complete auctex aggressive-indent adaptive-wrap))))
+    (fstar-mode company-quickhelp quick-peek vue-mode edit-indirect ssass-mode vue-html-mode web-beautify livid-mode skewer-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js-doc helm-gtags ggtags counsel-gtags company-tern tern coffee-mode add-node-modules-path yapfify yaml-mode web-mode utop tuareg string-inflection scss-mode pyvenv pip-requirements persp-mode paradox meghanada lua-mode live-py-mode linum-relative js2-mode ivy-hydra intero impatient-mode simple-httpd idris-mode hy-mode dash-functional hindent highlight-indentation git-timemachine flycheck-rust flycheck-haskell flx-ido fish-mode fill-column-indicator eyebrowse expand-region evil-surround evil-matchit ensime sbt-mode editorconfig dumb-jump define-word dante lcr cython-mode counsel-projectile company-auctex company-anaconda cargo auto-compile auctex-latexmk anaconda-mode ace-window ace-link ghc company counsel swiper iedit smartparens highlight flycheck projectile helm helm-core ivy avy magit magit-popup git-commit ghub with-editor markdown-mode epl pythonic f rust-mode powerline s dash yasnippet which-key use-package org-plus-contrib hydra exec-path-from-shell bind-key async evil goto-chg yasnippet-snippets ws-butler winum wgrep volatile-highlights vi-tilde-fringe uuidgen undo-tree toml-mode toc-org tagedit sql-indent spinner spaceline-all-the-icons smex smeargle slim-mode seq scala-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pytest pyenv-mode py-isort pug-mode prop-menu popwin pippel pipenv pcre2el packed overseer org-bullets open-junk-file ocp-indent noflet neotree nameless mvn move-text mmm-mode merlin maven-test-mode markdown-toc magit-gitflow macrostep link-hint less-css-mode ivy-xref ivy-purpose indent-guide importmagic hungry-delete htmlize hlint-refactor hl-todo highlight-parentheses highlight-numbers helm-make haskell-snippets gruvbox-theme groovy-mode groovy-imports gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-messenger git-link gh-md fuzzy font-lock+ flycheck-pos-tip flx evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dr-racket-like-unicode diminish counsel-css company-web company-statistics company-ghci company-ghc company-emacs-eclim company-cabal column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode caml auto-highlight-symbol auto-complete auctex aggressive-indent adaptive-wrap))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
