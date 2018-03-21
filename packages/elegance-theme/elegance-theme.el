@@ -50,7 +50,11 @@
   (elegance-yellow "#747165" nil)
   (elegance-blue "#60676B" nil)
   (elegance-purple "#847782" nil)
-  (elegance-cyan "#606B6B" nil))
+  (elegance-cyan "#606B6B" nil)
+
+  (elegance-proof-pending "#3a2d3d" nil)
+  (elegance-proof-working "#3f2d42" nil)
+  (elegance-proof-complete "#2e2330" nil))
 
  ;; Specifications:
  ((default (:background elegance-bg-primary :foreground elegance-fg-primary))
@@ -95,6 +99,12 @@
   (js2-private-function-call (:foreground elegance-yellow))
   (js2-private-member (:foreground elegance-red))
   (js2-warning (:foreground elegance-yellow :underline (:style 'wave :color elegance-yellow)))
+
+  ;; fstar-mode syntax
+  (fstar-structure-face (:foreground elegance-fg-primary))
+  (fstar-subp-overlay-busy-face (:background elegance-proof-working))
+  (fstar-subp-overlay-pending-face (:background elegance-proof-pending))
+  (fstar-subp-overlay-processed-face (:background elegance-proof-complete))
 
   ;; common
   (success (:foreground elegance-green :bold t))
