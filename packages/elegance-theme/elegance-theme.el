@@ -106,6 +106,18 @@
   (fstar-subp-overlay-pending-face (:background elegance-proof-pending))
   (fstar-subp-overlay-processed-face (:background elegance-proof-complete))
 
+  ;; coq syntax
+  (coq-cheat-face (:foreground elegance-red :underline (:style 'line :color elegance-red)))
+  (coq-solve-tactics-face (:foreground elegance-red))
+
+  ;; proof general syntax
+  (proof-declaration-name-face (:foreground elegance-yellow))
+  (proof-tactics-name-face (:foreground elegance-purple))
+  (proof-tacticals-name-face (:foreground elegance-red))
+  (proof-queue-face (:background elegance-proof-pending))
+  (proof-locked-face (:background elegance-proof-complete))
+  (proof-mouse-highlight-face (:background elegance-proof-working))
+
   ;; common
   (success (:foreground elegance-green :bold t))
   (error (:foreground elegance-red :bold t))
