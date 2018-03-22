@@ -522,15 +522,10 @@ you should place your code here."
   (pinentry-start)
 
   ;; DrRacket style unicode insert
-  (add-hook 'racket-mode-hook
-            (lambda ()
-              (define-key evil-insert-state-local-map (kbd "C-\\")
-                'dr-racket-like-unicode-char)))
-
-  (add-hook 'racket-repl-mode-hook
-            (lambda ()
-              (define-key evil-insert-state-local-map (kbd "C-\\")
-                'dr-racket-like-unicode-char)))
+  (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
+  (add-hook 'racket-mode-hook 'dr-racket-like-unicode-mode)
+  (add-hook 'racket-repl-mode-hook 'dr-racket-like-unicode-mode)
+  (add-hook 'markdown-mode-hook 'dr-racket-like-unicode-mode)
 
   ;; Setting up emoji support (requires multicolor font support in emacs build)
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
