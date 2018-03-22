@@ -29,6 +29,11 @@ This function should only modify configuration layer settings."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
 
+   ;; The default package repository used if no explicit repository has been
+   ;; specified with an installed package.
+   ;; Not used for now. (default nil)
+   dotspacemacs-default-package-repository nil
+
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(auto-completion
@@ -37,10 +42,6 @@ This function should only modify configuration layer settings."
      (fstar :location local)
      git
      (haskell :variables
-              ;; The default package repository used if no explicit repository has been
-              ;; specified with an installed package.
-              ;; Not used for now. (default nil)
-              dotspacemacs-default-package-repository nil
               haskell-indent-spaces 2)
      html
      idris
