@@ -6,7 +6,7 @@
 # Install core packages via Homebrew.
 brew tap d12frosted/emacs-plus
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
-brew install cloc fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
+brew install tokei fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
 brew install emacs-plus --without-spacemacs-icon --with-pixel-scrolling
 
 # Run mac-specific fish configuration.
