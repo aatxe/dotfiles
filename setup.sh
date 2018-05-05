@@ -4,6 +4,9 @@ wd=$(pwd)
 ln -s $wd/gitconfig $HOME/.gitconfig
 ln -s $wd/gitignore $HOME/.gitignore
 
+# Set up ideavimrc.
+ln -s $wd/ideavimrc $HOME/.ideavimrc
+
 # Set up spacemacs.
 git clone -b develop https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 ln -s $wd/spacemacs $HOME/.spacemacs

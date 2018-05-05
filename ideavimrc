@@ -1,0 +1,53 @@
+imap fd <Esc>
+set timeoutlen=500
+" set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+let mapleader=' '
+
+" buffer nav
+nnoremap <Leader>q :action VimMotionNextTab<CR>
+nnoremap <Leader>z :action VimMotionPreviousTab<CR>
+
+" switching windows
+nnoremap <Leader>wj <C-w>j
+nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>wh <C-w>h 
+" close buffer
+nnoremap <Leader>qq :exit<CR>
+
+" horiz split
+nnoremap <Leader>ws :action SplitHorizontally<CR>
+
+" vert split
+nnoremap <Leader>wv :action SplitVertically<CR>
+
+" center view on next find result
+nnoremap n nzzzv
+
+" center view on prev find result
+nnoremap N Nzzzv
+
+" abbrev case insensitivity
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+nnoremap <silent> <leader>sh :terminal<CR>
+
+" comment a line, similar to tpope/vim-commentary
+nnoremap <Leader>cs :action CommentByLineComment<CR>
+vnoremap <Leader>cl :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action CommentByLineComment<CR>gv
+
+nnoremap <Leader>gg :action GotoTypeDeclaration<CR>
+
+nnoremap <Leader>! :action ActivateTerminalToolWindow<CR>
