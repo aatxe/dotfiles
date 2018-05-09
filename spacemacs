@@ -62,7 +62,7 @@ This function should only modify configuration layer settings."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(autothemer
+   dotspacemacs-additional-packages '(pinentry
                                       dr-racket-like-unicode
                                       ;; Languages I only need highlighting for:
                                       fish-mode
@@ -448,9 +448,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  ;; Load dash and autothemer before themes.
-  (load-file "~/.emacs.d/elpa/dash-20171028.854/dash.el")
-  (load-file "~/.emacs.d/elpa/autothemer-20170112.1324/autothemer.el")
+  ;; Transparent title bars
+  (setq default-frame-alist '((ns-transparent-titlebar . t)
+                              (ns-appearance . 'nil)))
 
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
@@ -540,16 +540,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#282828" "#847777" "#6A8471" "#747165" "#60676B" "#847782" "#606B6B" "#6D6D6D"])
- '(custom-safe-themes
-   (quote
-    ("7527f3308a83721f9b6d50a36698baaedc79ded9f6d5bd4e9a28a22ab13b3cb1" "6ac7c0f959f0d7853915012e78ff70150bfbe2a69a1b703c3ac4184f9ae3ae02" default)))
- '(evil-want-Y-yank-to-eol nil)
- '(hl-paren-colors (quote ("#6A8471" "#847777" "#60676B" "#847782")))
  '(package-selected-packages
    (quote
-    (nord-theme yasnippet-snippets yaml-mode web-mode vue-mode edit-indirect ssass-mode racket-mode pyvenv proof-general pipenv persp-mode ocp-indent meghanada live-py-mode link-hint js2-refactor multiple-cursors ivy-xref intero idris-mode hy-mode groovy-mode git-link fstar-mode evil-nerd-commenter evil-matchit evil-magit editorconfig dante lcr company-web company-auctex avy counsel swiper company flycheck haskell-mode yasnippet helm helm-core htmlize ivy magit git-commit ghub with-editor js2-mode spaceline s dash org-plus-contrib evil async yapfify ws-butler winum which-key wgrep web-completion-data web-beautify vue-html-mode volatile-highlights vi-tilde-fringe uuidgen utop use-package undo-tree tuareg toml-mode toc-org tagedit string-inflection sql-indent spaceline-all-the-icons smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racer quick-peek pytest pyenv-mode py-isort pug-mode prop-menu powerline popwin pippel pip-requirements pcre2el paradox overseer org-bullets open-junk-file noflet neotree nameless mvn move-text mmm-mode merlin maven-test-mode markdown-toc magit-gitflow macrostep lua-mode livid-mode linum-relative less-css-mode json-mode js-doc ivy-purpose ivy-hydra indent-guide importmagic impatient-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-snippets gruvbox-theme groovy-imports gradle-mode goto-chg golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md fuzzy font-lock+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator faceup eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav dumb-jump dr-racket-like-unicode diminish define-word cython-mode counsel-projectile counsel-css company-tern company-statistics company-quickhelp company-ghci company-ghc company-emacs-eclim company-coq company-cabal company-anaconda column-enforce-mode coffee-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo auto-highlight-symbol auto-complete auto-compile auctex aggressive-indent adaptive-wrap ace-window ace-link))))
+    (pinentry yasnippet-snippets yapfify yaml-mode ws-butler winum wgrep web-mode web-beautify vue-mode edit-indirect ssass-mode vue-html-mode volatile-highlights vi-tilde-fringe uuidgen utop tuareg caml toml-mode toc-org tagedit string-inflection sql-indent spaceline-all-the-icons all-the-icons memoize spaceline powerline smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode faceup racer pyvenv pytest pyenv-mode py-isort pug-mode proof-general popwin pippel pipenv pip-requirements persp-mode pcre2el paradox spinner overseer org-bullets open-junk-file ocp-indent nord-theme noflet neotree nameless mvn move-text mmm-mode merlin meghanada maven-test-mode markdown-toc markdown-mode magit-gitflow macrostep lua-mode livid-mode skewer-mode live-py-mode linum-relative link-hint json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-xref ivy-purpose window-purpose imenu-list ivy-hydra intero indent-guide importmagic epc ctable concurrent deferred impatient-mode htmlize simple-httpd idris-mode prop-menu hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make helm helm-core haskell-snippets haml-mode groovy-mode groovy-imports pcache gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy fstar-mode company-quickhelp quick-peek flycheck-rust flycheck-pos-tip pos-tip flycheck-haskell flx-ido flx fish-mode fill-column-indicator eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub with-editor evil-lisp-state evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-cleverparens smartparens paredit evil-args evil-anzu anzu eval-sexp-fu highlight ensime sbt-mode scala-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode define-word dante lcr flycheck cython-mode counsel-projectile projectile pkg-info epl counsel-css counsel swiper ivy company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-coq company-math math-symbol-lists company-cabal company-auctex yasnippet company-anaconda company column-enforce-mode coffee-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo rust-mode autothemer auto-highlight-symbol auto-complete popup auto-compile packed auctex-latexmk auctex anaconda-mode pythonic f dash s aggressive-indent adaptive-wrap ace-window ace-link avy which-key use-package org-plus-contrib hydra font-lock+ exec-path-from-shell evil goto-chg undo-tree diminish bind-map bind-key async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
