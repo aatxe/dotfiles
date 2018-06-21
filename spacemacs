@@ -527,6 +527,11 @@ you should place your code here."
   (add-hook 'racket-repl-mode-hook 'dr-racket-like-unicode-mode)
   (add-hook 'markdown-mode-hook 'dr-racket-like-unicode-mode)
 
+  ;; Disable all of the PG abbreviations that annoy me while I try to write code.
+  (add-hook 'coq-mode-hook
+            (lambda ()
+              (clear-abbrev-table coq-mode-abbrev-table)))
+
   ;; Setting up emoji support (requires multicolor font support in emacs build)
   (set-fontset-font t 'symbol "Apple Color Emoji" nil 'prepend)
   (setq company-emoji-insert-unicode t))
