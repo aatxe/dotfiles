@@ -75,13 +75,11 @@ This function should only modify configuration layer settings."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '( ;; explicitly excluding spacemacs stuff I know I won't use
                                     ac-ispell
-                                    auto-yasnippet
                                     fancy-battery
                                     google-translate
                                     lorem-ipsum
                                     password-generator
-                                    symon
-                                    yasnippet)
+                                    symon)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -499,6 +497,9 @@ you should place your code here."
 
   ;; Set some default settings.
   (setq-default fill-column 100)
+  (add-hook 'latex-mode-hook
+            (lambda ()
+              (setq-local fill-column 80)))
 
   (defun shell-output-stripped (cmd)
     (substring
@@ -542,7 +543,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pinentry yasnippet-snippets yapfify yaml-mode ws-butler winum wgrep web-mode web-beautify vue-mode edit-indirect ssass-mode vue-html-mode volatile-highlights vi-tilde-fringe uuidgen utop tuareg caml toml-mode toc-org tagedit string-inflection sql-indent spaceline-all-the-icons all-the-icons memoize spaceline powerline smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode faceup racer pyvenv pytest pyenv-mode py-isort pug-mode proof-general popwin pippel pipenv pip-requirements persp-mode pcre2el paradox spinner overseer org-bullets open-junk-file ocp-indent nord-theme noflet neotree nameless mvn move-text mmm-mode merlin meghanada maven-test-mode markdown-toc markdown-mode magit-gitflow macrostep lua-mode livid-mode skewer-mode live-py-mode linum-relative link-hint json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-xref ivy-purpose window-purpose imenu-list ivy-hydra intero indent-guide importmagic epc ctable concurrent deferred impatient-mode htmlize simple-httpd idris-mode prop-menu hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make helm helm-core haskell-snippets haml-mode groovy-mode groovy-imports pcache gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy fstar-mode company-quickhelp quick-peek flycheck-rust flycheck-pos-tip pos-tip flycheck-haskell flx-ido flx fish-mode fill-column-indicator eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub with-editor evil-lisp-state evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-cleverparens smartparens paredit evil-args evil-anzu anzu eval-sexp-fu highlight ensime sbt-mode scala-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode define-word dante lcr flycheck cython-mode counsel-projectile projectile pkg-info epl counsel-css counsel swiper ivy company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-coq company-math math-symbol-lists company-cabal company-auctex yasnippet company-anaconda company column-enforce-mode coffee-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo rust-mode autothemer auto-highlight-symbol auto-complete popup auto-compile packed auctex-latexmk auctex anaconda-mode pythonic f dash s aggressive-indent adaptive-wrap ace-window ace-link avy which-key use-package org-plus-contrib hydra font-lock+ exec-path-from-shell evil goto-chg undo-tree diminish bind-map bind-key async))))
+    (auctex-latexmk yasnippet-snippets yapfify yaml-mode ws-butler winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg toml-mode toc-org tagedit string-inflection sql-indent spaceline-all-the-icons smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort pug-mode proof-general popwin pippel pipenv pip-requirements pinentry persp-mode pcre2el paradox overseer org-plus-contrib org-bullets open-junk-file ocp-indent nord-theme noflet neotree nameless mvn move-text merlin meghanada maven-test-mode markdown-toc magit-svn magit-gitflow macrostep lua-mode livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc ivy-yasnippet ivy-xref ivy-purpose ivy-hydra intero indent-guide importmagic impatient-mode idris-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-snippets groovy-mode groovy-imports gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy fstar-mode font-lock+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode diminish define-word dante cython-mode counsel-projectile counsel-css company-web company-tern company-statistics company-ghci company-ghc company-emacs-eclim company-coq company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo auto-highlight-symbol auto-complete auto-compile aggressive-indent ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
