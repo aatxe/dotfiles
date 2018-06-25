@@ -521,6 +521,9 @@ you should place your code here."
   ;; Enable pinentry for git commit signing.
   (pinentry-start)
 
+  ;; yasnippet diminish
+  (spacemacs|diminish yas-minor-mode "Ⓨ" " Y")
+
   ;; DrRacket style unicode insert
   (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
   (add-hook 'racket-mode-hook 'dr-racket-like-unicode-mode)
