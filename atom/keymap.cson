@@ -1,9 +1,16 @@
 'body':
-  'f d': 'vim-mode-plus:activate-normal-mode'
+  'f d': 'core:cancel'
+
+'atom-text-editor, atom-text-editor[mini]':
+  'f d': 'editor:consolidate-selections'
+
+'atom-text-editor.vim-mode-plus':
+  'f d': 'vim-mode-plus:reset-normal-mode'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode), atom-dock, .settings-view':
   'space space': 'command-palette:toggle'
   'space tab': 'awe:cycle-pane'
+  'space /': 'project-find:toggle'
 
   'space q q': 'application:quit'
   # +compile/comments
