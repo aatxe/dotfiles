@@ -1,4 +1,4 @@
-atom.keymaps.partialMatchTimeout = 50
+atom.keymaps.partialMatchTimeout = 100
 atom.commands.dispatch(atom.views.getView(atom.workspace), 'atom-hide-tabs:toggle')
 
 atom.commands.add 'atom-text-editor', 'awe:cycle-pane', ->
