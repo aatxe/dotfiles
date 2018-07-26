@@ -39,7 +39,6 @@
     fontFamily: "Fira Code, Fira Mono, Menlo, monospace"
     lineHeight: 1.6
     scrollSensitivity: 50
-    showIndentGuide: true
     showLineNumbers: false
   "exception-reporting":
     userId: "61bfee02-769c-4e34-97d6-4ed91a9d95a2"
