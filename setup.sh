@@ -13,6 +13,10 @@ ln -s $wd/spacemacs $HOME/.spacemacs
 ln -s $wd/layers/* $HOME/.emacs.d/private/
 ln -s $wd/packages/* $HOME/.emacs.d/private/
 
+# Set up atom.
+mkdir $HOME/.atom
+ln -s $wd/atom/* $HOME/.atom
+
 # Set up zsh with oh-my-zsh.
 mkdir -p $HOME/.config/fish/
 ln -s $wd/fish/config.fish $HOME/.config/fish/config.fish

@@ -1,0 +1,59 @@
+@import "nord";
+@import "ui-variables";
+
+atom-pane atom-text-editor {
+  background-color: darken(@nord0, 0.8%);
+}
+
+atom-pane.active atom-text-editor {
+  background-color: @nord0;
+}
+
+atom-pane-container.panes > atom-pane-axis atom-pane {
+  border-bottom: 1px solid @nord1;
+}
+
+atom-panel-container.left {
+  border-right: 1px solid @nord1;
+}
+
+atom-panel-container.right {
+  border-left: 1px solid @nord1;
+}
+
+atom-text-editor.vim-mode-plus.normal-mode {
+    .cursor {
+        background-color: @nord12 !important;
+    }
+}
+
+atom-text-editor.vim-mode-plus.insert-mode {
+  .cursor {
+        background-color: @nord14 !important;
+  }
+}
+
+atom-text-editor.vim-mode-plus.insert-mode.replace {
+  .cursor {
+        background-color: @nord11 !important;
+  }
+}
+
+atom-text-editor.vim-mode-plus.visual-mode {
+  .cursor {
+        background-color: @nord4 !important;
+  }
+}
+
+.command-mode-input atom-text-editor[mini],
+.command-mode-input atom-text-editor[mini] .syntax--text {
+  background: @input-background-color;
+  color: @text-color;
+  height: 1.4em;
+}
+
+.command-mode-input atom-text-editor[mini]:hover,
+.command-mode-input atom-text-editor[mini]:hover .syntax--text {
+  background: @background-color-highlight;
+  color: @text-color-highlight;
+}

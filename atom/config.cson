@@ -1,0 +1,74 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-terminal":
+      fontFamily: "Fira Code, courier-new, courier, monospace"
+  core:
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "language-perl"
+      "language-php"
+      "welcome"
+      "archive-view"
+      "background-tips"
+      "bookmarks"
+      "exception-reporting"
+      "language-csharp"
+      "language-clojure"
+      "language-c"
+      "go-to-line"
+      "language-go"
+      "language-java"
+      "language-objective-c"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-sql"
+      "metrics"
+      "project-plus"
+    ]
+    projectHome: "/Users/awe/Programming"
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "no"
+    themes: [
+      "nord-atom-ui"
+      "nord-atom-syntax"
+    ]
+    titleBar: "custom"
+    uriHandlerRegistration: "always"
+  editor:
+    autoIndent: false
+    fontFamily: "Fira Code, Fira Mono, Menlo, monospace"
+    lineHeight: 1.6
+    scrollSensitivity: 50
+    showIndentGuide: true
+    showLineNumbers: false
+  "exception-reporting":
+    userId: "61bfee02-769c-4e34-97d6-4ed91a9d95a2"
+  "git-projects":
+    maxDepth: 3
+    rootPath: "/Users/awe/Programming"
+  "project-plus": {}
+  "relative-numbers":
+    showAbsoluteNumbersInInsertMode: false
+  "status-bar": {}
+  "vim-mode-plus":
+    highlightSearch: false
+    useSmartcaseForFind: true
+    useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
+  welcome:
+    showOnStartup: false
+  "which-key":
+    showPackageNamesInCommands: false
+".bibtex.text":
+  editor:
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+".latex.tex.text":
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+".tex.text":
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
