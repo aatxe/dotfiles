@@ -29,8 +29,8 @@
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
     themes: [
-      "nord-atom-ui"
-      "nord-atom-syntax"
+      "one-light-ui"
+      "solarized-light-syntax"
     ]
     titleBar: "custom"
     uriHandlerRegistration: "always"
