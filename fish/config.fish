@@ -4,3 +4,4 @@ set -x GPG_TTY (tty)
 set -x PATH $HOME/.cargo/bin $PATH
 # Add .local/bin to path.
 set -x PATH $HOME/.local/bin $PATH
+set -g fish_user_paths "/usr/local/opt/zip/bin" $fish_user_paths

@@ -177,8 +177,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(nord
-                         (elegance :location local))
+   dotspacemacs-themes '(solarized-light
+                         nord)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
@@ -187,7 +187,7 @@ It should only modify the values of Spacemacs settings."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.2)
+   dotspacemacs-mode-line-theme '(spacemacs :separator bar :separator-scale 1.3)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -448,7 +448,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Transparent title bars
   (setq default-frame-alist '((ns-transparent-titlebar . t)
-                              (ns-appearance . dark)))
+                              (ns-appearance . light)))
 
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
@@ -521,6 +521,10 @@ you should place your code here."
   ;; Enable pinentry for git commit signing.
   (pinentry-start)
 
+  ;; OCaml diminishes
+  (spacemacs|diminish merlin-mode "ⓜ" " m")
+  (spacemacs|diminish utop-minor-mode "ⓤ" " u")
+
   ;; yasnippet diminish
   (spacemacs|diminish yas-minor-mode "Ⓨ" " Y")
 
@@ -549,9 +553,12 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#d2ceda" "#f2241f" "#67b11d" "#b1951d" "#3a81c3" "#a31db1" "#21b8c7" "#655370"])
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets wgrep web-mode utop sql-indent racket-mode racer pyvenv pippel pipenv merlin meghanada ivy-xref intero hl-todo highlight-parentheses git-link fstar-mode expand-region evil-magit evil-goggles evil-escape editorconfig define-word counsel-projectile aggressive-indent rust-mode anaconda-mode counsel swiper company smartparens projectile helm helm-core ivy skewer-mode js2-mode magit git-commit ghub markdown-mode pythonic spaceline mmm-mode which-key use-package org-plus-contrib hydra yapfify yaml-mode ws-butler with-editor winum web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen tuareg toml-mode toc-org tagedit string-inflection spaceline-all-the-icons smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters quick-peek pytest pyenv-mode py-isort pug-mode proof-general powerline popwin pip-requirements pinentry persp-mode pcre2el paradox overseer org-bullets open-junk-file ocp-indent nord-theme noflet neotree nameless mvn move-text maven-test-mode markdown-toc magit-svn magit-gitflow macrostep lua-mode livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc ivy-yasnippet ivy-purpose ivy-hydra indent-guide importmagic impatient-mode idris-mode hungry-delete hlint-refactor hindent highlight-numbers highlight-indentation helm-make haskell-snippets groovy-mode groovy-imports gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md fuzzy font-lock+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator faceup eyebrowse evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav dumb-jump dr-racket-like-unicode diminish dante cython-mode counsel-css company-web company-tern company-statistics company-quickhelp company-ghci company-ghc company-emacs-eclim company-coq company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo bind-key auto-yasnippet auto-highlight-symbol auto-complete auto-compile ace-window ace-link))))
+    (solarized-theme yasnippet-snippets wgrep web-mode utop sql-indent racket-mode racer pyvenv pippel pipenv merlin meghanada ivy-xref intero hl-todo highlight-parentheses git-link fstar-mode expand-region evil-magit evil-goggles evil-escape editorconfig define-word counsel-projectile aggressive-indent rust-mode anaconda-mode counsel swiper company smartparens projectile helm helm-core ivy skewer-mode js2-mode magit git-commit ghub markdown-mode pythonic spaceline mmm-mode which-key use-package org-plus-contrib hydra yapfify yaml-mode ws-butler with-editor winum web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen tuareg toml-mode toc-org tagedit string-inflection spaceline-all-the-icons smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters quick-peek pytest pyenv-mode py-isort pug-mode proof-general powerline popwin pip-requirements pinentry persp-mode pcre2el paradox overseer org-bullets open-junk-file ocp-indent nord-theme noflet neotree nameless mvn move-text maven-test-mode markdown-toc magit-svn magit-gitflow macrostep lua-mode livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc ivy-yasnippet ivy-purpose ivy-hydra indent-guide importmagic impatient-mode idris-mode hungry-delete hlint-refactor hindent highlight-numbers highlight-indentation helm-make haskell-snippets groovy-mode groovy-imports gradle-mode golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md fuzzy font-lock+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator faceup eyebrowse evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav dumb-jump dr-racket-like-unicode diminish dante cython-mode counsel-css company-web company-tern company-statistics company-quickhelp company-ghci company-ghc company-emacs-eclim company-coq company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo bind-key auto-yasnippet auto-highlight-symbol auto-complete auto-compile ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
