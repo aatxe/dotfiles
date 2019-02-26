@@ -465,8 +465,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; custom keybindings
-  (spacemacs/set-leader-keys "SPC g p" 'magit-push-current-to-upstream)
-  (spacemacs/set-leader-keys "SPC g P" 'magit-push-current)
+  (spacemacs/set-leader-keys "g p" 'magit-push-current-to-upstream)
+  (spacemacs/set-leader-keys "g P" 'magit-push-current)
 
   ;; hopefully resolve issue with cache/recentf
   (setq recentf-save-file (format "%s.%s" recentf-save-file server-name))
