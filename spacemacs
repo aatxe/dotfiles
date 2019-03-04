@@ -469,7 +469,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "g P" 'magit-push-current)
 
   ;; hopefully resolve issue with cache/recentf
-  (setq recentf-save-file (format "%s.%s" recentf-save-file server-name))
+  (setq recentf-save-file (format "/tmp/recentf.%s" (emacs-pid)))
 
   ;; enable Fira Code ligatures
   (when (window-system)
