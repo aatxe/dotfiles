@@ -502,6 +502,18 @@ you should place your code here."
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
+  ;; merlin setup
+  (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+    (when (and opam-share (file-directory-p opam-share))
+      ;; Register Merlin
+      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+      (autoload 'merlin-mode "merlin" nil t nil)
+      ;; Automatically start it in OCaml buffers
+      (add-hook 'tuareg-mode-hook 'merlin-mode t)
+      (add-hook 'caml-mode-hook 'merlin-mode t)
+      ;; Use opam switch to lookup ocamlmerlin binary
+      (setq merlin-command 'opam)))
+
   ;; Set some default settings.
   (setq-default fill-column 100)
   (add-hook 'LaTeX-mode-hook
@@ -534,6 +546,11 @@ you should place your code here."
 
   ;; yasnippet diminish
   (spacemacs|diminish yas-minor-mode "Ⓨ" " Y")
+
+  ;; coq diminishes
+  (spacemacs|diminish proof-active-buffer-fake-minor-mode "Ⓟ" " P")
+  (spacemacs|diminish holes-mode "Ⓗ" " H")
+  (spacemacs|diminish outline-minor-mode "ⓞ" " o")
 
   ;; DrRacket style unicode insert
   (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
