@@ -552,6 +552,8 @@ you should place your code here."
   (spacemacs|diminish holes-mode "Ⓗ" " H")
   (spacemacs|diminish outline-minor-mode "ⓞ" " o")
 
+  (add-hook 'coq-mode-hook 'golden-ratio-mode)
+
   ;; DrRacket style unicode insert
   (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
   (add-hook 'racket-mode-hook 'dr-racket-like-unicode-mode)
