@@ -13,3 +13,5 @@
 	required = true
 [commit]
 	gpgsign = true
+[init]
+	templateDir = /Users/awe/.config/git/template/

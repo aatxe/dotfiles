@@ -3,6 +3,7 @@ wd=$(pwd)
 # Set up git configurations.
 ln -s $wd/gitconfig $HOME/.gitconfig
 ln -s $wd/gitignore $HOME/.gitignore
+ln -s $wd/git $HOME/.config/git
 
 # Set up ideavimrc.
 ln -s $wd/ideavimrc $HOME/.ideavimrc
