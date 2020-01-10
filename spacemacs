@@ -469,6 +469,26 @@ you should place your code here."
   (spacemacs/set-leader-keys "g p" 'magit-push-current-to-upstream)
   (spacemacs/set-leader-keys "g P" 'magit-push-current)
 
+  ;; yes, they forgot this in tuareg... somehow...
+  (def-ocamldebug "back"   "\C-b"	"Step back one source line (skip functions)")
+
+  ;; ocamldebug keybindings (to make this usable at all)
+  (spacemacs/declare-prefix-for-mode 'tuareg-mode "md" "debugging")
+  (spacemacs/set-leader-keys-for-major-mode 'tuareg-mode
+    "." 'ocamldebug-last
+    "[" 'ocamldebug-back
+    "]" 'ocamldebug-next
+    "<" 'ocamldebug-up
+    ">" 'ocamldebug-down
+    "b" 'ocamldebug-break
+    "dd" 'ocamldebug
+    "dt" 'ocamldebug-backtrace
+    "dr" 'ocamldebug-run
+    "dv" 'ocamldebug-reverse
+    "dk" 'ocamldebug-kill
+    "dg" 'ocamldebug-goto
+    "df" 'ocamldebug-finish)
+
   ;; flycheck for mypyvy
   (setq flycheck-mypyvy-executable "/Users/awe/Programming/Python/mypyvy/src/mypyvy.py")
   (add-hook 'mypyvy-mode-hook 'flycheck-mode)
