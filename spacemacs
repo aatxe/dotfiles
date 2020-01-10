@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      javascript
      latex
      markdown
+     (mypyvy :location local)
      ocaml
      python
      racket
@@ -467,6 +468,10 @@ you should place your code here."
   ;; custom keybindings
   (spacemacs/set-leader-keys "g p" 'magit-push-current-to-upstream)
   (spacemacs/set-leader-keys "g P" 'magit-push-current)
+
+  ;; flycheck for mypyvy
+  (setq flycheck-mypyvy-executable "/Users/awe/Programming/Python/mypyvy/src/mypyvy.py")
+  (add-hook 'mypyvy-mode-hook 'flycheck-mode)
 
   ;; hopefully resolve issue with cache/recentf
   (setq recentf-save-file (format "/tmp/recentf.%s" (emacs-pid)))
