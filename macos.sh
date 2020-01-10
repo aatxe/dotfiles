@@ -7,7 +7,7 @@
 brew tap d12frosted/emacs-plus
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
 brew install tokei fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
-brew install emacs-plus --without-spacemacs-icon --with-pixel-scrolling
+brew install emacs-plus
 
 # Run mac-specific fish configuration.
 fish fish/setup-mac.fish

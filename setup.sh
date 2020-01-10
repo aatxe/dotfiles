@@ -18,7 +18,7 @@ ln -s $wd/packages/* $HOME/.emacs.d/private/
 mkdir $HOME/.atom
 ln -s $wd/atom/* $HOME/.atom
 
-# Set up zsh with oh-my-zsh.
+# Set up fish.
 mkdir -p $HOME/.config/fish/
 ln -s $wd/fish/config.fish $HOME/.config/fish/config.fish
 ln -s $wd/fish/functions $HOME/.config/fish/functions
