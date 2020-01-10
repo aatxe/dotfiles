@@ -1,0 +1,1 @@
+/Users/awe/Programming/Python/mypyvy/emacs/flycheck-mypyvy.el
