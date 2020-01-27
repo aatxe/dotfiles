@@ -17,7 +17,7 @@ brew install ocaml opam
 brew install scala sbt
 
 brew cask install java
-brew cask install mactex
+brew cask install basictex bibdesk tex-live-utility latexit
 brew cask install racket
 
 # Common Dev Dependencies
