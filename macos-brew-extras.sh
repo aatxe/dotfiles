@@ -3,6 +3,9 @@
 # Install a number of additional packages via Homebrew.
 # These are most likely going to consist of programming languages and dev dependencies.
 
+# Applications
+brew cask install skim keybase
+
 # Languages
 
 brew install fstar
