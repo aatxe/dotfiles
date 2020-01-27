@@ -1,1 +1,0 @@
-/Users/awe/Programming/Python/mypyvy/emacs/mypyvy-mode.el

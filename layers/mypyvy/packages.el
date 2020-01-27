@@ -35,10 +35,10 @@
 
 (defun mypyvy/init-mypyvy-mode ()
   (use-package mypyvy-mode
-    :load-path "~/Programming/Python/mypyvy/emacs/"))
+    :load-path "~/Develop/Python/mypyvy/emacs/"))
 
 (defun mypyvy/init-flycheck-mypyvy ()
   (use-package flycheck-mypyvy
-    :load-path "~/Programming/Python/mypyvy/emacs/"))
+    :load-path "~/Develop/Python/mypyvy/emacs/"))
 
 ;;; packages.el ends here
