@@ -460,6 +460,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (spacemacs|diminish holes-mode "Ⓗ" " H")
   (spacemacs|diminish outline-minor-mode "ⓞ" " o")
 
+  ;; Racket diminishes
+  (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
+
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
 
@@ -543,7 +546,6 @@ you should place your code here."
   (add-hook 'coq-mode-hook 'golden-ratio-mode)
 
   ;; DrRacket style unicode insert
-  (spacemacs|diminish dr-racket-like-unicode-mode "Ⓓ" " D")
   (add-hook 'racket-mode-hook 'dr-racket-like-unicode-mode)
   (add-hook 'racket-repl-mode-hook 'dr-racket-like-unicode-mode)
   (add-hook 'markdown-mode-hook 'dr-racket-like-unicode-mode)
