@@ -445,6 +445,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (if (fboundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
+  ;; start pinentry for commit signing
+  (pinentry-start)
+
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
 
