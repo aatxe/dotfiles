@@ -448,6 +448,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; start pinentry for commit signing
   (pinentry-start)
 
+  ;; OCaml diminishes
+  (spacemacs|diminish merlin-mode "ⓜ" " m")
+  (spacemacs|diminish utop-minor-mode "ⓤ" " u")
+
+  ;; yasnippet diminish
+  (spacemacs|diminish yas-minor-mode "Ⓨ" " Y")
+
+  ;; coq diminishes
+  (spacemacs|diminish proof-active-buffer-fake-minor-mode "Ⓟ" " P")
+  (spacemacs|diminish holes-mode "Ⓗ" " H")
+  (spacemacs|diminish outline-minor-mode "ⓞ" " o")
+
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
 
@@ -527,21 +539,6 @@ you should place your code here."
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
-
-  ;; Enable pinentry for git commit signing.
-  (pinentry-start)
-
-  ;; OCaml diminishes
-  (spacemacs|diminish merlin-mode "ⓜ" " m")
-  (spacemacs|diminish utop-minor-mode "ⓤ" " u")
-
-  ;; yasnippet diminish
-  (spacemacs|diminish yas-minor-mode "Ⓨ" " Y")
-
-  ;; coq diminishes
-  (spacemacs|diminish proof-active-buffer-fake-minor-mode "Ⓟ" " P")
-  (spacemacs|diminish holes-mode "Ⓗ" " H")
-  (spacemacs|diminish outline-minor-mode "ⓞ" " o")
 
   (add-hook 'coq-mode-hook 'golden-ratio-mode)
 
