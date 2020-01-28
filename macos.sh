@@ -4,11 +4,10 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install core packages via Homebrew.
-brew tap d12frosted/emacs-plus
+brew tap railwaycat/emacsmacport
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
 brew install tokei fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
-brew install emacs-plus
-brew cask install iterm2
+brew cask install emacs-mac-spacemacs-icon iterm2
 
 # Run mac-specific fish configuration.
 fish fish/setup-mac.fish
