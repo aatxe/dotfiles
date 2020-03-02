@@ -445,9 +445,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (if (fboundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
-  ;; start pinentry for commit signing
-  (pinentry-start)
-
   ;; OCaml diminishes
   (spacemacs|diminish merlin-mode "ⓜ" " m")
   (spacemacs|diminish utop-minor-mode "ⓤ" " u")
@@ -465,6 +462,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
+
+  ;; start pinentry for commit signing
+  (pinentry-start)
 
   ;; Disable checking where PATH is defined on startup.
   (setq exec-path-from-shell-check-startup-files nil))
@@ -569,6 +569,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(fill-column 100)
  '(package-selected-packages
    (quote
     (auctex-latexmk yasnippet-snippets yapfify yaml-mode ws-butler writeroom-mode winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg treemacs-projectile treemacs-evil toml-mode toc-org tagedit string-inflection sql-indent spaceline-all-the-icons solarized-theme smex smeargle slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters racket-mode racer pyvenv pytest pyenv-mode py-isort pug-mode proof-general prettier-js popwin pippel pipenv pip-requirements pinentry persp-mode pcre2el paradox overseer org-plus-contrib org-bullets open-junk-file ocp-indent nord-theme noflet nameless mvn move-text merlin meghanada maven-test-mode markdown-toc magit-svn magit-gitflow macrostep lua-mode livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc ivy-yasnippet ivy-xref ivy-purpose ivy-hydra indent-guide importmagic impatient-mode idris-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-snippets groovy-mode groovy-imports gradle-mode golden-ratio gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy fstar-mode font-lock+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu ensime emmet-mode elisp-slime-nav editorconfig dumb-jump dr-racket-like-unicode dotenv-mode doom-modeline diminish define-word cython-mode counsel-projectile counsel-css company-web company-tern company-statistics company-ghci company-emacs-eclim company-coq company-cabal company-auctex company-anaconda column-enforce-mode cmm-mode clean-aindent-mode centered-cursor-mode cargo auto-yasnippet auto-highlight-symbol auto-complete auto-compile aggressive-indent ace-link))))
@@ -577,5 +578,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 89)) (:foreground "#657b83" :background "#fdf6e3")))))
 )
