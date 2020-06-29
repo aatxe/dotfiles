@@ -6,7 +6,7 @@ function mktable --description "produces a LaTeX table for oxide testing results
     echo "borrowck & nll & advanced control flow & casting &
     first-class constructors & debug dump & enums & function mutability & heap &
     inline asm & out-of-scope library & macros & multithreading &
-    pattern matching & slice patterns & statics \& constants & traits &
+    slice patterns & statics \& constants & traits &
     two-phase borrows & uninitialized variables & universal function call &
     unsafe & variable mutability \\\\ \hline"
 
