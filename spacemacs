@@ -463,8 +463,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Follow symbolic links automatically.
   (setq vc-follow-symlinks t)
 
-  ;; start pinentry for commit signing
-  (pinentry-start)
+  ;; Set spacing to two for web mode.
+  (setq js-indent-level 2)
+  (setq js2-basic-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
 
   ;; Disable checking where PATH is defined on startup.
   (setq exec-path-from-shell-check-startup-files nil))
@@ -476,6 +480,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; start pinentry for commit signing
+  (pinentry-start)
 
   ;; custom keybindings
   (spacemacs/set-leader-keys "g p" 'magit-push-current-to-upstream)
@@ -536,12 +543,6 @@ you should place your code here."
             (lambda ()
               (setq racer-rust-src-path (concat (shell-output-stripped "rustc --print sysroot")
                                                 "/lib/rustlib/src/rust/src"))))
-
-  ;; Set spacing to two for web mode.
-  (setq js-indent-level 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
 
   (add-hook 'coq-mode-hook 'golden-ratio-mode)
 
