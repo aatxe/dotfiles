@@ -1,6 +1,6 @@
 [user]
 	name = Aaron Weiss
-	email = awe@pdgn.co
+	email = aweiss@hey.com
 	signingkey = 047D32DF25DC22EF
 [core]
 	excludesfile = ~/.gitignore
