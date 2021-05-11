@@ -1,5 +1,5 @@
 # dotfiles #
-These are configuration files for `{git, fish, spacemacs}`.
+These are configuration files for `{git, fish, spacemacs, doom emacs}`.
 
 ## Setup Process ##
 The current setup process looks something like this:
