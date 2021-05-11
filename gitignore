@@ -42,6 +42,9 @@ flycheck_*.el
 # server auth directory
 /server/
 
+# auctex files
+.auctex-auto
+
 # projectiles files
 .projectile
 
