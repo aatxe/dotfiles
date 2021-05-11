@@ -65,6 +65,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; evil escape sequence should be fd
+(after! evil-escape
+  (setq evil-escape-key-sequence "fd"))
+
 ;; swap surround and substitution in evil
 (after! evil-surround
   (progn
