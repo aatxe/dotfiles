@@ -1,13 +1,16 @@
 #!/usr/bin/env sh
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install core packages via Homebrew.
 brew tap railwaycat/emacsmacport
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
-brew install tokei fish gnupg trash rlwrap burntsushi/ripgrep/ripgrep-bin
-brew cask install emacs-mac-spacemacs-icon iterm2
+brew tap homebrew/cask-fonts
+brew install tokei fish gnupg trash rlwrap jq svn burntsushi/ripgrep/ripgrep-bin
+brew install --cask emacs-mac-spacemacs-icon iterm2
+brew install --cask font-fira-code font-fira-mono font-fira-mono-for-powerline font-fira-sans
 
 # Run mac-specific fish configuration.
 fish fish/setup-mac.fish
