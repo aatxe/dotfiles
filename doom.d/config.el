@@ -11,7 +11,6 @@
       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
       (add-to-list 'default-frame-alist '(ns-appearance . dark))
       (setq ns-use-proxy-icon nil)
-      (setq frame-title-format nil)
       (tool-bar-mode -1)))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
