@@ -15,6 +15,9 @@ brew install --cask font-fira-code font-fira-mono font-fira-mono-for-powerline f
 # Run mac-specific fish configuration.
 fish fish/setup-mac.fish
 
+# link iCloud org directory into home
+ln -s ~/Library/Mobile\ Documents/com~apple\~CloudDocs/org/ ~/org
+
 # Based on https://github.com/JDevlieghere/dotfiles/blob/master/os/macos.sh
 
 # Get the administrator password upfront.
