@@ -15,3 +15,5 @@
 	gpgsign = true
 [init]
 	templateDir = /Users/awe/.config/git/template/
+[pull]
+	rebase = true
