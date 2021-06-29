@@ -8,6 +8,8 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 # Add emacs to path.
 set -x PATH $HOME/.emacs.doom/bin $PATH
+# Add LaTeX tools to path.
+set -x PATH /Library/TeX/texbin $PATH
 set -g fish_user_paths "/usr/local/opt/zip/bin" $fish_user_paths
 # opam
 eval (opam env)
