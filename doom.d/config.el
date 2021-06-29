@@ -18,9 +18,6 @@
 (setq user-full-name "Aaron Weiss"
       user-mail-address "aweiss@hey.com")
 
-;; start pinentry for commit signing
-(pinentry-start)
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -92,6 +89,11 @@
 (map! :leader
       :desc "M-x"                   "SPC"  #'execute-extended-command
       :desc "Switch to last buffer" "TAB"  #'evil-switch-to-windows-last-buffer
+
+      ;;; <leader> l --- latex
+      (:prefix-map ("l" . "latex")
+       (:when (featurep! :lang latex)
+        :desc "LaTeX fill region" "r" #'LaTeX-fill-region))
 
       ;;; <leader> g --- git
       (:prefix-map ("g" . "git")

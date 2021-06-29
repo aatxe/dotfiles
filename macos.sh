@@ -8,9 +8,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap railwaycat/emacsmacport
 brew tap burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
 brew tap homebrew/cask-fonts
-brew install tokei fish gnupg trash rlwrap jq svn burntsushi/ripgrep/ripgrep-bin
+brew install tokei fish gnupg pinentry-mac trash rlwrap jq svn burntsushi/ripgrep/ripgrep-bin
 brew install --cask emacs-mac-spacemacs-icon iterm2
 brew install --cask font-fira-code font-fira-mono font-fira-mono-for-powerline font-fira-sans
+
+# Set up GPG configuration.
+ln -s $wd/gnupg/gpg.conf $HOME/.gnupg/gpg.conf
+ln -s $wd/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 
 # Run mac-specific fish configuration.
 fish fish/setup-mac.fish
