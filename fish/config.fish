@@ -1,5 +1,5 @@
 # homebrew
-eval (/opt/homebrew/bin/brew shellenv)
+# eval (/opt/homebrew/bin/brew shellenv)
 # GPG_TTY for terminal pinentry
 set -x GPG_TTY (tty)
 # Add cargo to path.
