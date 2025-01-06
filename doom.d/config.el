@@ -13,6 +13,9 @@
       (setq ns-use-proxy-icon nil)
       (tool-bar-mode -1)))
 
+;; fix for sonoma huge title bar bug
+(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Aaron Weiss"
@@ -28,7 +31,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'light)
+(setq doom-font (font-spec :family "Berkeley Mono" :size 14 :weight 'light)
       doom-variable-pitch-font (font-spec :family "Fira Sans" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and

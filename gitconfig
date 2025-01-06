@@ -1,19 +1,20 @@
 [user]
-	name = Aaron Weiss
+	name = Ariel Weiss
 	email = aweiss@hey.com
-	signingkey = 047D32DF25DC22EF
+	signingkey = A932353BB65E4960
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/emacsclient -t
 [push]
 	default = simple
+	autoSetupRemote = true
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
-[commit]
-	gpgsign = true
-[init]
-	templateDir = /Users/awe/.config/git/template/
 [pull]
 	rebase = true
+[init]
+	defaultBranch = primary
+[commit]
+	gpgsign = true
