@@ -1,0 +1,11 @@
+command = /opt/homebrew/bin/fish
+font-family = Berkeley Mono
+
+cursor-click-to-move = true
+link-url = true
+
+theme = Atom One Light
+macos-icon = chalkboard
+macos-titlebar-style = tabs
+window-padding-x = 8
+window-padding-y = 8
