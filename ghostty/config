@@ -1,5 +1,6 @@
 command = /opt/homebrew/bin/fish
 font-family = Berkeley Mono
+font-size = 15
 
 cursor-click-to-move = true
 link-url = true
