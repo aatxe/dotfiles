@@ -51,3 +51,5 @@
 
 (package! pinentry)
 (package! golden-ratio)
+
+(package! eglot-luau)
