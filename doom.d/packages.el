@@ -49,7 +49,11 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! pinentry)
 (package! golden-ratio)
+(package! jsonrpc)
+(package! pinentry)
 
+(package! bazel)
+(package! dape
+  :recipe (:host github :repo "svaante/dape"))
 (package! eglot-luau)

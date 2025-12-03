@@ -64,6 +64,89 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(add-to-list 'auto-mode-alist '("\\.luau\\'" . lua-mode))
+
+(use-package! eglot-luau
+  :demand t
+  :after (lua-mode eglot)
+  :functions eglot-luau-setup
+  :config (eglot-luau-setup)
+  :hook (lua-mode . eglot-ensure))
+
+(after! eglot-luau
+  (setq eglot-luau-fflag-overrides '(("LuauSolverV2" "True"))))
+
+(defun get-luau-unittest-path (mode)
+  (let* ((default-directory (projectile-project-root))
+         (output-lines (split-string
+                        (shell-command-to-string
+                         (concat "buck2 build //Client/Luau:Luau.UnitTest --show-output @modes//macos//commontests-arm64" " " mode))
+                        "\n" t))
+         (last-line (car (last output-lines)))
+         (build-path (nth 1 (split-string last-line " "))))
+    (string-trim build-path)))
+
+(defun get-script-services-path (mode)
+  (let* ((default-directory (projectile-project-root))
+         (output-lines (split-string
+                        (shell-command-to-string
+                         (concat "buck2 build //Client/Luau:Luau.UnitTest --show-output @modes//macos//commontests-arm64" " " mode))
+                        "\n" t))
+         (last-line (car (last output-lines)))
+         (build-path (nth 1 (split-string last-line " "))))
+    (string-trim build-path)))
+
+(after! dape
+  (setq dape-cwd-function 'projectile-project-root)
+  (setq dape-buffer-window-arrangement 'right)
+
+  (let ((codelldb
+         `( ensure dape-ensure-command
+            command-cwd dape-command-cwd
+            command ,(file-name-concat dape-adapter-dir
+                                       "codelldb"
+                                       "extension"
+                                       "adapter"
+                                       "codelldb")
+            command-args ("--port" :autoport)
+            port :autoport
+            :type "lldb"
+            :request "launch"
+            :cwd ".")))
+
+        (add-to-list 'dape-configs
+                `(lut
+                        modes (c++-mode)
+                        ,@codelldb
+                        :program ,(lambda () (get-luau-unittest-path "@modes//noopt"))
+                        :args #1=["--fflags=true,LuauSolverV2=true"]
+                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
+                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
+        (add-to-list 'dape-configs
+                `(lut-opt
+                        modes (c++-mode)
+                        ,@codelldb
+                        :program ,(lambda () (get-luau-unittest-path "@modes//optimized"))
+                        :args #1=["--fflags=true,LuauSolverV2=true"]
+                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
+                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
+        (add-to-list 'dape-configs
+                `(ss
+                        modes (c++-mode)
+                        ,@codelldb
+                        :program ,(lambda () (get-script-services-path "@modes//noopt"))
+                        :args #1=["--fflags=true,LuauSolverV2=true"]
+                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
+                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
+        (add-to-list 'dape-configs
+                `(ss-opt
+                        modes (c++-mode)
+                        ,@codelldb
+                        :program ,(lambda () (get-script-services-path "@modes//optimized"))
+                        :args #1=["--fflags=true,LuauSolverV2=true"]
+                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
+                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))))
+
 ;; evil escape sequence should be fd
 (after! evil-escape
   (setq evil-escape-key-sequence "fd"))
@@ -93,13 +176,32 @@
       :desc "M-x"                   "SPC"  #'execute-extended-command
       :desc "Switch to last buffer" "TAB"  #'evil-switch-to-windows-last-buffer
 
+      ;;; <leader> d --- debugger
+      (:prefix-map ("d" . "debug")
+       :desc "Dape open a debugger instance"           "d"   #'dape
+       :desc "Dape quit the current debugger instance" "q"   #'dape-quit
+       :desc "Dape toggle breakpoint at line"          "b"   #'dape-breakpoint-toggle
+       :desc "Dape clear all breakpoints"              "B"   #'dape-breakpoint-remove-all
+       :desc "Dape pause program under debugger"       "p"   #'dape-pause
+       :desc "Dape continue program execution"         "c"   #'dape-continue
+       :desc "Dape switch to repl"                     "r"   #'dape-repl
+       :desc "Dape restart debugger session"           "R"   #'dape-restart
+       :desc "Dape next in debugger"                   "n"   #'dape-next
+       :desc "Dape step-in in debugger"                "s"   #'dape-step-in
+       :desc "Dape step-in in debugger"                "o"   #'dape-step-out
+       :desc "Dape add watch expression"               "w"   #'dape-watch-dwim
+       :desc "Dape select stackframe by index"         "S"   #'dape-select-stack
+       :desc "Dape select thread by index"             "t"   #'dape-select-thread
+       :desc "Dape step down in callstack"             "k" #'dape-stack-select-down
+       :desc "Dape step up in callstack"               "j"   #'dape-stack-select-up)
+
       ;;; <leader> l --- latex
       (:prefix-map ("l" . "latex")
-       (:when (featurep! :lang latex)
+       (:when (modulep! :lang latex)
         :desc "LaTeX fill region" "r" #'LaTeX-fill-region))
 
       ;;; <leader> g --- git
       (:prefix-map ("g" . "git")
-       (:when (featurep! :tools magit)
+       (:when (modulep! :tools magit)
         :desc "Magit push current to upstream" "p" #'magit-push-current-to-upstream
         :desc "Magit push current"             "P" #'magit-push-current)))
