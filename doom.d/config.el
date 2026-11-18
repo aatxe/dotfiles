@@ -9,17 +9,15 @@
       (setq initial-frame-alist '((width . 120)
                                   (height . 50)))
       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-      (add-to-list 'default-frame-alist '(ns-appearance . dark))
+      ;; Let macOS choose the native frame appearance from its system setting.
+      (setq default-frame-alist (assq-delete-all 'ns-appearance default-frame-alist))
       (setq ns-use-proxy-icon nil)
       (tool-bar-mode -1)))
-
-;; fix for sonoma huge title bar bug
-(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Ariel Weiss"
-      user-mail-address "arielweiss@roblox.com")
+      user-mail-address "aweiss@hey.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -36,8 +34,42 @@
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one-light)
+;; `load-theme' function. Doom chooses the first theme in dark mode and the
+;; second in light mode.
+(setq doom-theme '(doom-one . doom-one-light))
+
+;; Some stock Cocoa builds cannot read the current appearance through
+;; AppleScript, but we can check macOS's appearance preference instead.
+(defun doom--dark-mode-p ()
+  "Return non-nil when macOS is using its dark appearance."
+  (if (and (boundp 'ns-system-appearance)
+           (memq ns-system-appearance '(dark light)))
+      (eq ns-system-appearance 'dark)
+    (string-equal
+     (string-trim
+      (shell-command-to-string
+       "/usr/bin/defaults read -g AppleInterfaceStyle 2>/dev/null"))
+     "Dark")))
+
+;; Stock macOS Emacs builds do not all provide an appearance-change hook, so
+;; poll the system setting and reload the corresponding theme when it changes.
+(defvar my/system-dark-mode-last nil)
+
+(defun my/sync-theme-with-system-appearance (&rest _)
+  (when (and (display-graphic-p) (consp doom-theme))
+    (let ((dark (doom--dark-mode-p)))
+      (unless (eq dark my/system-dark-mode-last)
+        (setq my/system-dark-mode-last dark)
+        (mapc #'disable-theme custom-enabled-themes)
+        (doom-init-theme-h)))))
+
+(add-hook 'ns-system-appearance-change-functions
+          #'my/sync-theme-with-system-appearance)
+
+(add-hook 'doom-after-init-hook
+          (lambda ()
+            (my/sync-theme-with-system-appearance)
+            (run-with-timer 30 30 #'my/sync-theme-with-system-appearance)))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -64,88 +96,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-to-list 'auto-mode-alist '("\\.luau\\'" . lua-mode))
-
-(use-package! eglot-luau
-  :demand t
-  :after (lua-mode eglot)
-  :functions eglot-luau-setup
-  :config (eglot-luau-setup)
-  :hook (lua-mode . eglot-ensure))
-
-(after! eglot-luau
-  (setq eglot-luau-fflag-overrides '(("LuauSolverV2" "True"))))
-
-(defun get-luau-unittest-path (mode)
-  (let* ((default-directory (projectile-project-root))
-         (output-lines (split-string
-                        (shell-command-to-string
-                         (concat "buck2 build //Client/Luau:Luau.UnitTest --show-output @modes//macos//commontests-arm64" " " mode))
-                        "\n" t))
-         (last-line (car (last output-lines)))
-         (build-path (nth 1 (split-string last-line " "))))
-    (string-trim build-path)))
-
-(defun get-script-services-path (mode)
-  (let* ((default-directory (projectile-project-root))
-         (output-lines (split-string
-                        (shell-command-to-string
-                         (concat "buck2 build //Client/Luau:Luau.UnitTest --show-output @modes//macos//commontests-arm64" " " mode))
-                        "\n" t))
-         (last-line (car (last output-lines)))
-         (build-path (nth 1 (split-string last-line " "))))
-    (string-trim build-path)))
-
 (after! dape
   (setq dape-cwd-function 'projectile-project-root)
-  (setq dape-buffer-window-arrangement 'right)
-
-  (let ((codelldb
-         `( ensure dape-ensure-command
-            command-cwd dape-command-cwd
-            command ,(file-name-concat dape-adapter-dir
-                                       "codelldb"
-                                       "extension"
-                                       "adapter"
-                                       "codelldb")
-            command-args ("--port" :autoport)
-            port :autoport
-            :type "lldb"
-            :request "launch"
-            :cwd ".")))
-
-        (add-to-list 'dape-configs
-                `(lut
-                        modes (c++-mode)
-                        ,@codelldb
-                        :program ,(lambda () (get-luau-unittest-path "@modes//noopt"))
-                        :args #1=["--fflags=true,LuauSolverV2=true"]
-                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
-                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
-        (add-to-list 'dape-configs
-                `(lut-opt
-                        modes (c++-mode)
-                        ,@codelldb
-                        :program ,(lambda () (get-luau-unittest-path "@modes//optimized"))
-                        :args #1=["--fflags=true,LuauSolverV2=true"]
-                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
-                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
-        (add-to-list 'dape-configs
-                `(ss
-                        modes (c++-mode)
-                        ,@codelldb
-                        :program ,(lambda () (get-script-services-path "@modes//noopt"))
-                        :args #1=["--fflags=true,LuauSolverV2=true"]
-                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
-                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))
-        (add-to-list 'dape-configs
-                `(ss-opt
-                        modes (c++-mode)
-                        ,@codelldb
-                        :program ,(lambda () (get-script-services-path "@modes//optimized"))
-                        :args #1=["--fflags=true,LuauSolverV2=true"]
-                        :preRunCommands #2=["command script import ./Client/Luau/tools/lldb_formatters.py",
-                                            "command source ./Client/Luau/tools/lldb_formatters.lldb"]))))
+  (setq dape-buffer-window-arrangement 'right))
 
 ;; evil escape sequence should be fd
 (after! evil-escape
@@ -156,13 +109,6 @@
   (progn
     (evil-define-key 'visual evil-surround-mode-map "s" 'evil-surround-region)
     (evil-define-key 'visual evil-surround-mode-map "S" 'evil-substitute)))
-
-;; golden ratio for coq-mode
-(add-hook! coq-mode 'golden-ratio-mode)
-
-;; no proof-general abbreviations in coq-mode
-(add-hook! coq-mode
-        (lambda () (clear-abbrev-table coq-mode-abbrev-table)))
 
 ;; follow symbolic links automatically.
 (setq vc-follow-symlinks t)
